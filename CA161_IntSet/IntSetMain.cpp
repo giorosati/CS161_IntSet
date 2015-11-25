@@ -12,9 +12,6 @@ using namespace std;
 
 int main()
 {
-	cout << "This is a test to confirm this is working..." << endl;
-	system("pause");
-
 	//create some items
 	/*Item a("affidavit", 179.99, 12);
 	Item b("Bildungsroman", 0.7, 20);
