@@ -9,19 +9,17 @@
 #ifndef INTSET_HPP
 #define INTSET_HPP
 
-//#include <string>
-
 using namespace std;
 
 //declare the Item class
 class IntSet
 {
 private:
-	//dynamically allocated array of items
-	int intSetArray[];
+	//dynamically allocated array
+	int intSetArray[10];
 
 	//pointer to the array
-
+	int* arrayPointer = intSetArray;
 
 	//size of the array
 	int arraySize;
@@ -33,9 +31,20 @@ public:
 	//default constructor
 	IntSet();
 
+	//constructor with a paramenter
+	IntSet(int);
+
 	//deconstructor
 	~IntSet();
 
 	//functions
+	int size();
+	bool isEmpty();
+	bool contains(int);
+	bool add(int);
+	bool remove(int);
+	bool addAll(const int *IntSet);
+	bool removeDifferent(const int *IntSet);
+	bool removeSame(const int *IntSet)
 };
 #endif
