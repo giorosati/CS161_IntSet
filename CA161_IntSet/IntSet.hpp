@@ -15,11 +15,9 @@ using namespace std;
 class IntSet
 {
 private:
-	//dynamically allocated array
-	int intSetArray[10];
 
 	//pointer to the array
-	int* arrayPointer = intSetArray;
+	int*intSetArray = new int[10];
 
 	//size of the array
 	int arraySize;
@@ -28,6 +26,7 @@ private:
 	int intSetSize;
 
 public:
+
 	//default constructor
 	IntSet();
 
@@ -45,6 +44,6 @@ public:
 	bool remove(int);
 	bool addAll(const int *IntSet);
 	bool removeDifferent(const int *IntSet);
-	bool removeSame(const int *IntSet)
+	bool removeSame(const int *IntSet);
 };
 #endif

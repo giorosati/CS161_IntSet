@@ -12,25 +12,28 @@ using namespace std;
 
 int main()
 {
-	//create some items
-	/*Item a("affidavit", 179.99, 12);
-	Item b("Bildungsroman", 0.7, 20);
-	Item c("capybara", 4.5, 6);
-	Item d("dirigble", 0.05, 16);*/
+	//create a default Object
+	IntSet testIntSet;
 
-	//create a shopping cart
-	/*ShoppingCart sc1;*/
+	//test methods on new object created
+	cout << "program is back in main." << endl;
+	system("pause");
+	bool empty = testIntSet.isEmpty();
+	cout << "Returned from isEmpty function: " << empty << endl;
+	/*cout << "Returned from size method: " << testIntSet.size() << endl;
+	cout << "Returned from contains method test: " << testIntSet.contains(5) << endl;*/
+	//	cout << "value in intSetArray[0]: " << testIntSet.intSetArray[0] << endl;
+	system("pause");
 
-	//add some items to the shopping cart
-	//sc1.addItem(&a);
-	//sc1.addItem(&b);
-	//sc1.addItem(&c);
-	//sc1.addItem(&d);
+	//add ints to the test object
+	testIntSet.add(3);
+	testIntSet.add(8);
+	testIntSet.add(9);
 
-	//calculate and return the total price for items in the cart
-	//double diff = sc1.totalPrice();
-	//cout << "The total is: " << diff << endl;
-	//system("pause");
+	//test additions
+	cout << "Value at position 0: " << testIntSet.intSetArray[0] << endl;
+
+	system("pause");
 
 	return 0;
 }
