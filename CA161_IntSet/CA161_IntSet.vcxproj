@@ -124,6 +124,9 @@
     <ClCompile Include="IntSet.cpp" />
     <ClCompile Include="IntSetMain.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="InsructorExample.txt" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

@@ -1,0 +1,97 @@
+An example of IntSet.cpp
+
+
+#include <iostream>
+#include "IntSet.hpp"
+
+using std::cout;
+using std::endl;
+
+IntSet::IntSet()
+{
+   array = new int[10];
+   arraySize = 10;
+   numVals = 0;
+}
+
+IntSet::~IntSet()
+{
+   delete []array;
+}
+
+bool IntSet::contains(int val) const
+{
+   for (int i=0; i<numVals; i++)
+      if (array[i] == val)
+         return true;
+
+   return false;
+}
+
+void IntSet::add(int val)
+{
+   if (contains(val))
+      return;
+
+   if (numVals == arraySize)
+   {
+      int* temp = new int[2 * arraySize];
+      for (int i=0; i<arraySize; i++)
+         temp[i] = array[i];
+      delete []array;
+      array = temp;
+      arraySize *= 2;
+   }
+
+   array[numVals] = val;
+   numVals++;
+}
+
+void IntSet::remove(int val)
+{
+   if (!contains(val))
+      return;
+
+   int index = 0;
+   while (array[index] != val)
+      index++;
+   for (int i=index; i<numVals; i++)
+      array[i] = array[i+1];
+   numVals--;
+}
+
+int IntSet::size()
+{
+   return numVals;
+}
+
+void IntSet::addAll(const IntSet& set)
+{
+   for (int i=0; i<set.numVals; i++)
+      add(set.array[i]);
+}
+
+void IntSet::removeDifferent(const IntSet& set)
+{
+   for (int i=0; i<numVals; i++)
+      if (!set.contains(array[i]))
+      {
+            remove(array[i]);
+         i--;
+      }
+}
+
+void IntSet::removeSame(const IntSet& set)
+{
+   for (int i=0; i<numVals; i++)
+      if (set.contains(array[i]))
+      {
+            remove(array[i]);
+         i--;
+      }
+}
+
+bool IntSet::isEmpty()
+{
+   return (numVals == 0);
+}
